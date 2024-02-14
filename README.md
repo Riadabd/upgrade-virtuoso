@@ -53,8 +53,7 @@ mv data/db/dumps data/db/toLoad
 ```
 
 ```shell
-rm -i data/db/virtuoso.{db,trx,pxa} data/db/
-virtuoso-temp.db data/db/.data_loaded data/db/.dba_pwd_set
+rm -i data/db/virtuoso.{db,trx,pxa} data/db/virtuoso-temp.db data/db/.data_loaded data/db/.dba_pwd_set
 ```
 
 ### Update the `Virtuoso` version in `docker-compose.yml`
