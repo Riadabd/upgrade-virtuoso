@@ -38,7 +38,9 @@ docker compose down
 ```
 
 ### Remove the old db and corresponding files
-After stopping the containers move the `dumps` folder to the `toLoad` folder and make sure to delete the following files:
+
+After stopping the containers, rename the `dumps` folder to `toLoad` and make sure to delete the following files:
+
 * `.data_loaded`
 * `.dba_pwd_set`
 * `virtuoso.db`
@@ -56,6 +58,7 @@ virtuoso-temp.db data/db/.data_loaded data/db/.dba_pwd_set
 ```
 
 ### Update the `Virtuoso` version in `docker-compose.yml`
+
 ```diff
 virtuoso:
 -    image: redpencil/virtuoso:1.0.0
@@ -63,6 +66,7 @@ virtuoso:
 ```
 
 ### Start the database again and monitor logs for any weird behavior:
+
 ```shell
 docker compose up -d virtuoso && docker compose logs -ft virtuoso
 ```
