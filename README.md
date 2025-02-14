@@ -39,7 +39,13 @@ docker compose down
 
 ### Remove the old db and corresponding files
 
-After stopping the containers, rename the `dumps` folder to `toLoad` and make sure to delete the following files:
+After stopping the containers, rename the `dumps` folder to `toLoad`:
+
+```shell
+mv data/db/dumps data/db/toLoad
+```
+
+and make sure to delete the following files:
 
 * `.data_loaded`
 * `.dba_pwd_set`
@@ -47,10 +53,6 @@ After stopping the containers, rename the `dumps` folder to `toLoad` and make su
 * `virtuoso.trx`
 * `virtuoso.pxa`
 * `virtuoso-temp.db`
-
-```shell
-mv data/db/dumps data/db/toLoad
-```
 
 ```shell
 rm -i data/db/virtuoso.{db,trx,pxa} data/db/virtuoso-temp.db data/db/.data_loaded data/db/.dba_pwd_set
