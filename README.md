@@ -84,7 +84,7 @@ SQL> select * from DB.DBA.load_list;
 
 The query will output a table; you can validate the process by checking the `ll_state` of the load. A `ll_state` of 2 means a file has been successfully loaded.
 
-### Remove toLoad/ folder
+### Remove `toLoad/` folder
 
 Once you confirm `ll_state` of 2 for all nquad dump files, remove the `toLoad/` folder:
 
