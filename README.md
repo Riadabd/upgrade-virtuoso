@@ -60,6 +60,16 @@ rm -i data/db/virtuoso.{db,trx,pxa} data/db/virtuoso-temp.db data/db/.data_loade
 
 ### Update the `Virtuoso` version in `docker-compose.yml`
 
+At this moment, the latest release of `Virtuoso` is `v1.3.0-rc.1`. The release candidate is nothing much to worry about; our builds of `Virtuoso` are based on stable releases of that database, but they are typically tagged as release candidates since we have not internally tried them out yet.
+
+```diff
+virtuoso:
+-    image: redpencil/virtuoso:1.0.0
++    image: redpencil/virtuoso:1.3.0-rc.1
+```
+
+You can also opt to go with the *stable* version of `Virtuoso` that has been in use in most of our apps for more than a year.
+
 ```diff
 virtuoso:
 -    image: redpencil/virtuoso:1.0.0
