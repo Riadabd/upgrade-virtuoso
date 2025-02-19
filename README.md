@@ -29,8 +29,10 @@ When upgrading it is recommend (and sometimes required) to first dump to quads u
 docker compose exec virtuoso isql-v
 ```
 
+Inside the SQL prompt, run the following:
+
 ```shell
-SQL> dump_nquads ('dumps', 1, 1000000000, 1);
+dump_nquads ('dumps', 1, 1000000000, 1);
 ```
 
 > Note: This procedure can take a couple of minutes.
@@ -94,8 +96,10 @@ You can monitor the dump loading state as follows:
 docker compose exec virtuoso isql-v
 ```
 
+Inside the SQL prompt, run the following:
+
 ```shell
-SQL> select * from DB.DBA.load_list;
+select * from DB.DBA.load_list;
 ```
 
 The query will output a table; you can validate the process by checking the `ll_state` of the load. A `ll_state` of 2 means a file has been successfully loaded.
