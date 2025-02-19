@@ -1,9 +1,15 @@
 # Upgrade with database size optimizations:
 
 Before any upgrade starts, it is best to back up your `virtuoso` container:
-* Stop the stack: `docker compose down`
+* Stop the stack:
+```shell
+docker compose down
+```
 * Start the maintenance frontend banner (if any exists)
-* Start the database container: `docker compose up -d virtuoso && docker compose logs -ft virtuoso`
+* Start the database container:
+```shell
+docker compose up -d virtuoso && docker compose logs -ft virtuoso
+```
 * Start the backup process using `virtuoso-backup.sh` inside the `/data/useful-scripts/` directory:
 ```shell
 /data/useful-scripts/virtuoso-backup.sh `docker ps --filter "label=com.docker.compose.project=[YOUR-PROJECT]" --filter "label=com.docker.compose.service=[YOUR-DB-CONTAINER]" --format "{{.Names}}"`
