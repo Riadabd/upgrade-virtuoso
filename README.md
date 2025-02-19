@@ -102,7 +102,7 @@ Inside the SQL prompt, run the following:
 select * from DB.DBA.load_list;
 ```
 
-The query will output a table; you can validate the process by checking the `ll_state` of the load. A `ll_state` of 2 means a file has been successfully loaded.
+The query will output a table; you can validate the process by checking the `ll_state` of the load. An `ll_state` of 2 means a file has been successfully loaded.
 
 ### Remove `toLoad/` folder
 
