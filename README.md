@@ -17,7 +17,7 @@ docker compose up -d virtuoso && docker compose logs -ft virtuoso
 
 Replace `[YOUR-PROJECT]` with your intended project (e.g., `app-digitaal-loket`, `app-worship-decisions-database`, etc...) and `[YOUR-DB-CONTAINER]` with your virtuoso container name (e.g., `virtuoso` or `triplestore` for some apps).
 
-> Note: The upgrade section in [this README](https://github.com/redpencilio/docker-virtuoso/blob/dec36bd4a5ed4191c42e0a9b5ca979d67bc22cfe/README.md#upgrading) describes the process needed to upgrade the database and reduce its size. The steps have been copied from Niel's notes with minor adjustments:
+> Note: The upgrade section in [this README](https://github.com/redpencilio/docker-virtuoso/blob/dec36bd4a5ed4191c42e0a9b5ca979d67bc22cfe/README.md#upgrading) describes the process needed to upgrade the database and reduce its size. The steps have been copied from Niel's notes with minor adjustments.
 
 ## Steps for `Virtuoso`:
 
