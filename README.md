@@ -6,6 +6,7 @@ Before any upgrade starts, it is best to back up your `virtuoso` container:
 docker compose down
 ```
 * Start the maintenance frontend banner (if any exists)
+* If you have already pulled the latest changes or checked out a tag containing those changes, **make sure** to override your `virtuoso` or `triplestore` service with the old image.
 * Start the database container:
 ```shell
 docker compose up -d virtuoso && docker compose logs -ft virtuoso
@@ -44,6 +45,10 @@ Confirm the procedure works by checking the contents of `data/db/dumps`.
 ```shell
 docker compose down
 ```
+
+### Remove old `Virtuoso` image (if applicable)
+
+If you overrode the database image (mentioned in the 3rd step in the first section above), make sure to remove that override before proceeding further.
 
 ### Remove the old db and corresponding files
 
