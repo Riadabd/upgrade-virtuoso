@@ -15,6 +15,10 @@ or
 ```shell
 drc up -d triplestore && drc logs -ft triplestore
 ```
+* List the running docker containers and make sure you are the running the *old* database image:
+```shell
+drc ps -a
+```
 * Start the backup process using `virtuoso-backup.sh` inside the `/data/useful-scripts/` directory:
 ```shell
 /data/useful-scripts/virtuoso-backup.sh `docker ps --filter "label=com.docker.compose.project=[YOUR-PROJECT]" --filter "label=com.docker.compose.service=[YOUR-DB-CONTAINER]" --format "{{.Names}}"`
@@ -109,6 +113,12 @@ or
 
 ```shell
 drc up -d triplestore && drc logs -ft triplestore
+```
+
+Before proceeding, list the running docker containers and make sure you are running the *new* database image:
+
+```shell
+drc ps -a
 ```
 
 You can monitor the dump loading state as follows:
