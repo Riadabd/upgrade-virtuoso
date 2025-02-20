@@ -3,13 +3,13 @@
 Before any upgrade starts, it is best to back up your `virtuoso` container:
 * Stop the stack:
 ```shell
-docker compose down
+drc down
 ```
 * Start the maintenance frontend banner (if any exists)
 * If you have already pulled the latest changes or checked out a tag containing those changes, **make sure** to override your `virtuoso` or `triplestore` service with the old image.
 * Start the database container:
 ```shell
-docker compose up -d virtuoso && docker compose logs -ft virtuoso
+drc up -d virtuoso && drc logs -ft virtuoso
 ```
 * Start the backup process using `virtuoso-backup.sh` inside the `/data/useful-scripts/` directory:
 ```shell
@@ -27,7 +27,7 @@ Replace `[YOUR-PROJECT]` with your intended project (e.g., `app-digitaal-loket`,
 When upgrading it is recommend (and sometimes required) to first dump to quads using the `dump_nquads` procedure:
 
 ```shell
-docker compose exec virtuoso isql-v
+drc exec virtuoso isql-v
 ```
 
 Inside the SQL prompt, run the following:
@@ -43,7 +43,7 @@ Confirm the procedure works by checking the contents of `data/db/dumps`. This fo
 ### Stop `Virtuoso`
 
 ```shell
-docker compose down
+drc down
 ```
 
 ### Remove old `Virtuoso` image (if applicable)
@@ -92,13 +92,13 @@ virtuoso:
 ### Start the database again and monitor logs for any weird behavior:
 
 ```shell
-docker compose up -d virtuoso && docker compose logs -ft virtuoso
+drc up -d virtuoso && drc logs -ft virtuoso
 ```
 
 You can monitor the dump loading state as follows:
 
 ```shell
-docker compose exec virtuoso isql-v
+drc exec virtuoso isql-v
 ```
 
 Inside the SQL prompt, run the following:
