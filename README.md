@@ -38,7 +38,7 @@ dump_nquads ('dumps', 1, 1000000000, 1);
 
 > Note: This procedure can take a couple of minutes.
 
-Confirm the procedure works by checking the contents of `data/db/dumps`.
+Confirm the procedure works by checking the contents of `data/db/dumps`. This folder should contain dump files having an `.nq.gz` extension.
 
 ### Stop `Virtuoso`
 
