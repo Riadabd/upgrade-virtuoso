@@ -11,6 +11,10 @@ drc down
 ```shell
 drc up -d virtuoso && drc logs -ft virtuoso
 ```
+or
+```shell
+drc up -d triplestore && drc logs -ft triplestore
+```
 * Start the backup process using `virtuoso-backup.sh` inside the `/data/useful-scripts/` directory:
 ```shell
 /data/useful-scripts/virtuoso-backup.sh `docker ps --filter "label=com.docker.compose.project=[YOUR-PROJECT]" --filter "label=com.docker.compose.service=[YOUR-DB-CONTAINER]" --format "{{.Names}}"`
@@ -28,6 +32,12 @@ When upgrading it is recommend (and sometimes required) to first dump to quads u
 
 ```shell
 drc exec virtuoso isql-v
+```
+
+or
+
+```shell
+drc exec triplestore isql-v
 ```
 
 Inside the SQL prompt, run the following:
@@ -95,10 +105,22 @@ virtuoso:
 drc up -d virtuoso && drc logs -ft virtuoso
 ```
 
+or
+
+```shell
+drc up -d triplestore && drc logs -ft triplestore
+```
+
 You can monitor the dump loading state as follows:
 
 ```shell
 drc exec virtuoso isql-v
+```
+
+or
+
+```shell
+drc exec triplestore isql-v
 ```
 
 Inside the SQL prompt, run the following:
