@@ -15,9 +15,17 @@ or
 ```shell
 drc up -d triplestore && drc logs -ft triplestore
 ```
+and/or (in case you are also upgrading your `publication-triplestore`)
+```shell
+drc up -d publication-triplestore && drc logs -ft publication-triplestore
+```
 * List the running docker containers and make sure you are the running the *old* database image:
 ```shell
 drc ps -a
+```
+In case you are running the old `docker-compose`, you need to run:
+```
+drc images
 ```
 * Start the backup process using `virtuoso-backup.sh` inside the `/data/useful-scripts/` directory:
 ```shell
@@ -42,6 +50,12 @@ or
 
 ```shell
 drc exec triplestore isql-v
+```
+
+and/or (in case you are also upgrading your `publication-triplestore`)
+
+```shell
+drc up -d publication-triplestore && drc logs -ft publication-triplestore
 ```
 
 Inside the SQL prompt, run the following:
@@ -72,6 +86,12 @@ After stopping the containers, rename the `dumps` folder to `toLoad`:
 mv data/db/dumps data/db/toLoad
 ```
 
+and/or (in case you are also upgrading your `publication-triplestore`)
+
+```shell
+mv data/publication-triplestore/dumps data/publication-triplestore/toLoad
+```
+
 and make sure to delete the following files:
 
 * `.data_loaded`
@@ -84,6 +104,11 @@ and make sure to delete the following files:
 ```shell
 rm -i data/db/virtuoso.{db,trx,pxa} data/db/virtuoso-temp.db data/db/.data_loaded data/db/.dba_pwd_set
 ```
+
+and/or (in case you are also upgrading your `publication-triplestore`)
+
+```shell
+rm -i data/publication-triplestore/virtuoso.{db,trx,pxa} data/publication-triplestore/virtuoso-temp.db data/publication-triplestore/.data_loaded data/publication-triplestore/.dba_pwd_set
 
 ### Update the `Virtuoso` version in `docker-compose.yml`
 
@@ -103,6 +128,8 @@ virtuoso:
 +    image: redpencil/virtuoso:1.2.0
 ```
 
+The same applies in case you are planning to upgrade your `publication-triplestore`.
+
 ### Start the database again and monitor logs for any weird behavior:
 
 ```shell
@@ -113,6 +140,12 @@ or
 
 ```shell
 drc up -d triplestore && drc logs -ft triplestore
+```
+
+and/or (in case you are also upgrading your `publication-triplestore`)
+
+```shell
+drc up -d publication-triplestore && drc logs -ft publication-triplestore
 ```
 
 Before proceeding, list the running docker containers and make sure you are running the *new* database image:
@@ -133,6 +166,12 @@ or
 drc exec triplestore isql-v
 ```
 
+and/or (in case you are also upgrading your `publication-triplestore`)
+
+```shell
+drc exec publication-triplestore isql-v
+```
+
 Inside the SQL prompt, run the following:
 
 ```shell
@@ -147,6 +186,12 @@ Once you confirm `ll_state` of 2 for all nquad dump files, remove the `toLoad/` 
 
 ```shell
 rm -rf data/db/toLoad
+```
+
+and/or (in case you are also upgrading your `publication-triplestore`)
+
+```shell
+rm -rf data/publication-triplestore/toLoad
 ```
 
 ### Start the stack back up again
