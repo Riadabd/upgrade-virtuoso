@@ -109,6 +109,7 @@ and/or (in case you are also upgrading your `publication-triplestore`)
 
 ```shell
 rm -i data/publication-triplestore/virtuoso.{db,trx,pxa} data/publication-triplestore/virtuoso-temp.db data/publication-triplestore/.data_loaded data/publication-triplestore/.dba_pwd_set
+```
 
 ### Update the `Virtuoso` version in `docker-compose.yml`
 
