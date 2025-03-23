@@ -55,7 +55,7 @@ drc exec triplestore isql-v
 and/or (in case you are also upgrading your `publication-triplestore`)
 
 ```shell
-drc up -d publication-triplestore && drc logs -ft publication-triplestore
+drc exec publication-triplestore isql-v
 ```
 
 Inside the SQL prompt, run the following:
