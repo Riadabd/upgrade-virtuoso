@@ -197,14 +197,8 @@ rm -rf data/publication-triplestore/toLoad
 
 ### Start the stack back up again
 
-Assuming there are no other pulled changes that require a preferred certain process to run (e.g., running any pending migrations first before starting up the rest of the stack), you can start up everything at once:
+Assuming there are no other pulled changes that require a preferred certain process to run (e.g., running any pending migrations first before starting up the rest of the stack), start up everything at once and monitor the logs:
 
 ```shell
-drc up -d
-```
-
-Make sure to observe the logs during the initial start-up instances and watch out for any errors:
-
-```shell
-drc logs -ft --tail=200
+drc up -d && drc logs -ft --tail=200
 ```
